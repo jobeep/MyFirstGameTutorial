@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
+
+    public float yPos = -8f;
+
+    public int xPos = 0;
+    public float translation = 5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,13 +17,15 @@ public class Spaceship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && this.transform.position.x != -10)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && this.xPos > -1)
         {
-            this.transform.position = new Vector2(this.transform.position.x - 10, -8);
+            this.xPos--;
+            this.transform.position = new Vector2(xPos * this.translation, yPos);
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x != 10)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && this.xPos < 1)
         {
-            this.transform.position = new Vector2(this.transform.position.x + 10, -8);
+            this.xPos++;
+            this.transform.position = new Vector2(xPos * this.translation, yPos);
         }
     }
 }
