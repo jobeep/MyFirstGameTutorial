@@ -19,7 +19,7 @@ public class Asteroid : MonoBehaviour
 
         if (this.transform.position.y > -15)
         {
-            this.transform.position = new Vector3(xPos * this.translation, yPos, 0f);
+            this.transform.position = new Vector2(xPos * this.translation, yPos);
         } else
         {
             Destroy(gameObject);
